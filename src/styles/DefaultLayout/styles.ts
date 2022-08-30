@@ -6,4 +6,5 @@ export const DefaultContainer = styled.div`
   flex-direction: column;
   align-items: center;
   padding: 0 1rem;
+  background: #f9f9f9;
 `

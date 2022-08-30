@@ -67,7 +67,7 @@ export const CountryGrid = styled.div`
   width: 100%;
   display: grid;
   grid-template-columns: repeat(4,1fr);
-  gap: ${pxToRem(10)};
+  gap: ${pxToRem(15)};
 
 `
 export const LinkStyled = styled(Link)`
@@ -81,10 +81,10 @@ export const LinkStyled = styled(Link)`
   text-decoration: none;
   color:#000;
 
-  transition: scale 0.2s;
+  transition: scale 0.2s ease-in;
 
   &:hover{
-    scale: 1.02;
+    scale: 1.05;
     cursor: pointer;
   }
 
