@@ -1,4 +1,5 @@
 import { createGlobalStyle } from "styled-components";
+import { pxToRem } from "../utils/functions";
 
 export const GlobalStyle = createGlobalStyle`
   *{
@@ -8,6 +9,14 @@ export const GlobalStyle = createGlobalStyle`
     font-family: 'Rubik', sans-serif;
   }
   html{
-    font-size: 1rem;
+    font-size: ${pxToRem(16)};
+  }
+  button{
+    border:0;
+    background: transparent;
+
+    &:hover{
+      cursor: pointer;
+    }
   }
 `
