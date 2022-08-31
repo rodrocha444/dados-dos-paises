@@ -1,7 +1,13 @@
 import { CountryContainer, CountryData } from "./styles";
 import LogoHorizontal from '../../assets/logos/logo-horizontal.png'
+import { restCountriesAPI } from "../../api";
 
 export function CountryInfo() {
+  async function handleClick() {
+    console.log('alo')
+    console.log(await restCountriesAPI.getAll())
+  }
+
   return (
     <CountryContainer>
       <header>
@@ -30,6 +36,8 @@ export function CountryInfo() {
           <p>Língua:</p>
           <p>Área (km²):</p>
           <p>População:</p>
+
+          <button onClick={handleClick}>Get ALL</button>
         </section>
       </CountryData>
     </CountryContainer>

@@ -1,8 +1,16 @@
 import { CountryGrid, HomeContainer, LinkStyled, Logo, RandomButton, SearchBar } from "./styles";
 import LogoPrincipal from '../../assets/logos/logo-principal.png'
 import { ArrowsClockwise, MagnifyingGlass } from "phosphor-react";
+import { restCountriesAPI } from '../../api'
+import { useEffect, useState } from "react";
 
 export function Home() {
+  const [countries, setCountries] = useState(getCountries())
+
+  async function getCountries() {
+    return await restCountriesAPI.getAll()
+  }
+
   return (
     <HomeContainer>
       <header>
