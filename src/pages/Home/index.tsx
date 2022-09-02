@@ -2,55 +2,26 @@ import { CountryGrid, HomeContainer, LinkStyled, Logo, RandomButton, SearchBar }
 import LogoPrincipal from '../../assets/logos/logo-principal.png'
 import { ArrowsClockwise, MagnifyingGlass } from "phosphor-react";
 import { restCountriesAPI } from '../../api'
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { getArrayOfRandomNumbers } from "../../utils/functions";
+import { Country } from "../../types/main";
+import { CountriesContext } from "../../context/CountriesContext";
 
-interface Country {
-  name: {
-    common: string
-    official: string
-  }
-  independent: boolean
-  currencies: {}
-  cca3: string
-  capital: string[]
-  subregion: string
-  languages: {}
-  translations: {
-    por: {
-      official: string
-      common: string
-    }
-  },
-  area: number
-  maps: {
-    googleMaps: string
-  },
-  population: number
-  continents: string[]
-  flags: {
-    png: string
-    svg: string
-  },
-  coatOfArms: {
-    png: string
-    svg: string
-  }
-}
+
 
 export function Home() {
 
-  const [countries, setCountries] = useState<Country[]>([])
+  const [countries, updateCountries] = useContext(CountriesContext)
   const [randomCountries, setRandomCountries] = useState<Country[]>([])
 
   async function initializeCountries() {
     let response = await restCountriesAPI.getAll()
-    setCountries(response.data)
+    updateCountries(response.data)
   }
   function constructCoutriesButtons() {
-    if (randomCountries.length > 0) {
+    if (randomCountries.length > 1) {
       return randomCountries.map((country, index) => (
-        <LinkStyled key={country ? country?.cca3 : index} to="country">
+        <LinkStyled key={country ? country?.cca3 : index} to={`country/${country?.cca3}`}>
           <img src={country?.flags.png} alt="country flag" />
           <span>{country?.translations.por.common}</span>
         </LinkStyled>
@@ -74,6 +45,7 @@ export function Home() {
 
   useEffect(() => {
     initializeCountries()
+
   }, [])
 
   useEffect(() => {

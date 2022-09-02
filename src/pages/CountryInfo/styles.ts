@@ -45,13 +45,11 @@ export const CountryData = styled.main`
     gap: ${pxToRem(26)};
 
     & .flag{
-      background: blue;
       grid-column: 1/3;
       width: 100%;
       box-shadow: 5px 5px 10px #0005;
     }
     & .brasao{
-      background: red;
       grid-row: 2/5;
       width: 100%;
     }

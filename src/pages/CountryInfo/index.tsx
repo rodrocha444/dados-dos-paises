@@ -1,8 +1,20 @@
 import { CountryContainer, CountryData } from "./styles";
 import LogoHorizontal from '../../assets/logos/logo-horizontal.png'
 import { restCountriesAPI } from "../../api";
+import { useContext, useEffect, useState } from "react";
+import { CountriesContext } from "../../context/CountriesContext";
+import { useParams } from "react-router-dom";
+import { Country } from "../../types/main";
 
 export function CountryInfo() {
+  const [countries,] = useContext(CountriesContext)
+  const countrySelectedCCA3 = useParams().cca3
+  const [countrySelected, setCountrySelected] = useState<Country>()
+
+  useEffect(() => {
+    setCountrySelected(countries.filter(country => country.cca3 === countrySelectedCCA3)[0])
+  }, [])
+
   async function handleClick() {
     console.log('alo')
     console.log(await restCountriesAPI.getAll())
@@ -16,20 +28,22 @@ export function CountryInfo() {
 
       <CountryData>
         <section className="left-side">
-          <img src="https://flagcdn.com/fi.svg" className="flag" />
-          <img src="https://mainfacts.com/media/images/coats_of_arms/fi.svg" className="brasao" />
-          <div className="link">maps</div>
+          <img src={countrySelected?.flags.png} className="flag" />
+          <img src={countrySelected?.coatOfArms.png} className="brasao" />
+          <a href={countrySelected?.maps.googleMaps}>
+            <button className="link">Localização</button>
+          </a>
           <div className="link">Download Brasão</div>
           <div className="link">Download bandeira</div>
         </section>
 
         <section className="right-side">
-          <h1>BRASIL (BRAZIL)</h1>
-          <h2>República Federativa do Brasil (Republic of Brazil)</h2>
+          <h1>{countrySelected?.translations.por.common} ({countrySelected?.name.common})</h1>
+          <h2>{countrySelected?.translations.por.official} ({countrySelected?.name.official})</h2>
 
-          <p>Capital:</p>
-          <p>N° de Habitantes:</p>
-          <p>Independente:</p>
+          <p>Capital: {countrySelected?.capital.toString()}</p>
+          <p>N° de Habitantes: {countrySelected?.population}</p>
+          <p>Independente: {countrySelected?.independent ? "Sim" : "Não"}</p>
           <p>Moeda: Real (R$)</p>
           <p>Continente:</p>
           <p>Região:</p>
