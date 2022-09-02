@@ -5,6 +5,8 @@ import { useContext, useEffect, useState } from "react";
 import { CountriesContext } from "../../context/CountriesContext";
 import { Link, useParams } from "react-router-dom";
 import { Country } from "../../types/main";
+import NumberFormat from 'react-number-format'
+import { MapPin } from "phosphor-react";
 
 export function CountryInfo() {
   const [countries,] = useContext(CountriesContext)
@@ -31,12 +33,13 @@ export function CountryInfo() {
       <CountryData>
         <section className="left-side">
           <img src={countrySelected?.flags.png} className="flag" />
-          <img src={countrySelected?.coatOfArms.png} className="brasao" />
+            <img src={countrySelected?.coatOfArms.png} className="brasao" />
           <a href={countrySelected?.maps.googleMaps}>
-            <button className="link">Localização</button>
+            <button className="link">
+              <MapPin />
+              <p>Localização</p>
+            </button>
           </a>
-          <div className="link">Download Brasão</div>
-          <div className="link">Download bandeira</div>
         </section>
 
         <section className="right-side">
@@ -44,16 +47,32 @@ export function CountryInfo() {
           <h2>{countrySelected?.translations.por.official} ({countrySelected?.name.official})</h2>
 
           <p>Capital: {countrySelected?.capital.toString()}</p>
-          <p>N° de Habitantes: {countrySelected?.population}</p>
+          <NumberFormat
+            prefix="N° de Habitantes: "
+            value={countrySelected?.population}
+            displayType="text"
+            thousandSeparator='.'
+            decimalSeparator=","
+          />
           <p>Independente: {countrySelected?.independent ? "Sim" : "Não"}</p>
-          <p>Moeda: </p>
-          <p>Continente:</p>
-          <p>Região:</p>
-          <p>Língua:</p>
-          <p>Área (km²):</p>
-          <p>População:</p>
-
-          <button onClick={handleClick}>Get ALL</button>
+          <p>Moeda: {
+            countrySelected && Object.keys(countrySelected?.currencies)
+              .map(currency => `${countrySelected?.currencies[currency].name} (${countrySelected?.currencies[currency].symbol})`)
+          }</p>
+          <p>Continente: {countrySelected?.continents.map(country => `${country}`)}</p>
+          <p>Região: {countrySelected?.subregion}</p>
+          <p>Língua: {
+            countrySelected && Object.keys(countrySelected?.languages)
+              .map((language, index, array) => `${countrySelected?.languages[language]}${(index == array.length - 1) ? '.' : ', '}`)
+          }</p>
+          <NumberFormat
+            prefix="Área: "
+            suffix=" km²"
+            value={countrySelected?.area}
+            displayType="text"
+            thousandSeparator='.'
+            decimalSeparator=","
+          />
         </section>
       </CountryData>
     </CountryContainer>

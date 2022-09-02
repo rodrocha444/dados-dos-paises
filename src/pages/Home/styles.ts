@@ -39,10 +39,6 @@ export const SearchBar = styled.form`
     border: 0;
     outline: 0;
     flex:1;
-
-    &:focus {
-      
-    } 
     
   }
 `
@@ -68,7 +64,6 @@ export const CountryGrid = styled.div`
   display: grid;
   grid-template-columns: repeat(4,1fr);
   gap: ${pxToRem(15)};
-
 `
 export const LinkStyled = styled(Link)`
   display: flex;

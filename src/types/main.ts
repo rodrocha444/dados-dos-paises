@@ -4,11 +4,18 @@ export interface Country {
     official: string
   }
   independent: boolean
-  currencies: {}
+  currencies: {
+    [currency: string]: {
+      name: string
+      symbol: string
+    }
+  }
   cca3: string
   capital: string[]
   subregion: string
-  languages: {}
+  languages: {
+    [language: string]: string
+  }
   translations: {
     por: {
       official: string
