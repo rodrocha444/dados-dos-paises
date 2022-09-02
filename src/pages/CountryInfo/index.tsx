@@ -3,7 +3,7 @@ import LogoHorizontal from '../../assets/logos/logo-horizontal.png'
 import { restCountriesAPI } from "../../api";
 import { useContext, useEffect, useState } from "react";
 import { CountriesContext } from "../../context/CountriesContext";
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import { Country } from "../../types/main";
 
 export function CountryInfo() {
@@ -23,7 +23,9 @@ export function CountryInfo() {
   return (
     <CountryContainer>
       <header>
-        <img src={LogoHorizontal} alt="logo horizontal do site paises do mundo" />
+        <Link to="/">
+          <img src={LogoHorizontal} alt="logo horizontal do site paises do mundo" />
+        </Link>
       </header>
 
       <CountryData>
@@ -44,7 +46,7 @@ export function CountryInfo() {
           <p>Capital: {countrySelected?.capital.toString()}</p>
           <p>N° de Habitantes: {countrySelected?.population}</p>
           <p>Independente: {countrySelected?.independent ? "Sim" : "Não"}</p>
-          <p>Moeda: Real (R$)</p>
+          <p>Moeda: </p>
           <p>Continente:</p>
           <p>Região:</p>
           <p>Língua:</p>

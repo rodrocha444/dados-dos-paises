@@ -15,7 +15,7 @@ export const CountryContainer = styled.div`
     display: flex;
     justify-content: center;
   }
-  & > header > img {
+  & > header img {
     height: ${pxToRem(20)};
   }
 `
