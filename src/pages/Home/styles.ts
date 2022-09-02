@@ -79,7 +79,9 @@ export const LinkStyled = styled(Link)`
   overflow: hidden;
   background: transparent;
   text-decoration: none;
+  text-overflow: clip;
   color:#000;
+  position: relative;
 
   transition: scale 0.2s ease-in;
 
@@ -89,15 +91,19 @@ export const LinkStyled = styled(Link)`
   }
 
   & > img{
-    width: 100%;
+    height: ${pxToRem(120)};
   }
 
   &> span{
     margin-top: -${pxToRem(26)};
     line-height: 1;
-    background: #fff9;
+    font-weight: 500;
+    color:#fff;
+    background: #0007;
     padding: ${pxToRem(5)};
     text-transform: uppercase;
-    
+    position: absolute;
+    bottom: 0;
+    width: 100%;
   }
 `
