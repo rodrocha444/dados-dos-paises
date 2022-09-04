@@ -2,23 +2,24 @@ import { CountryGrid, HomeContainer, LinkStyled, Logo, RandomButton, SearchBar }
 import LogoPrincipal from '../../assets/logos/logo-principal.png'
 import { ArrowsClockwise, MagnifyingGlass } from "phosphor-react";
 import { restCountriesAPI } from '../../api'
-import { useContext, useEffect, useState } from "react";
-import { getArrayOfRandomNumbers } from "../../utils/functions";
+import { useEffect, useState } from "react";
+import { getArrayOfDistinctRandomNumbers } from "../../utils/functions";
 import { Country } from "../../types/main";
-import { CountriesContext } from "../../context/CountriesContext";
 
 
 
 export function Home() {
-
-  const [countries, updateCountries] = useContext(CountriesContext)
+  const [countries, setCountries] = useState<Country[]>([])
   const [randomCountries, setRandomCountries] = useState<Country[]>([])
   const [filter, setFilter] = useState('')
 
   async function initializeCountries() {
     let response = await restCountriesAPI.getAll()
-    updateCountries(response.data)
+    console.log(response.data)
+    setCountries(response.data)
+    localStorage.setItem('countries', JSON.stringify(response.data))
   }
+
   function constructCoutriesButtons() {
     if (randomCountries.length > 0) {
       return randomCountries.map((country, index) => (
@@ -28,29 +29,26 @@ export function Home() {
         </LinkStyled>
       ))
     }
-    else {
+    else
       return []
-    }
-
-
-
   }
   function defineRandomCountries(lengthOfCountries: number) {
-    let numberOfCountriesInHome = 12;
-    let indexOfRandomCountries = getArrayOfRandomNumbers(0, lengthOfCountries - 1, numberOfCountriesInHome)
-    let countriesSelecteds = indexOfRandomCountries.map(index => countries[index])
-    setRandomCountries(countriesSelecteds.filter(function (item, pos) {
-      return countriesSelecteds.indexOf(item) == pos;
-    }))
+    if (lengthOfCountries > 0) {
+      let numberOfCountriesInHome = 12;
+      let indexOfRandomCountries = getArrayOfDistinctRandomNumbers(0, lengthOfCountries - 1, numberOfCountriesInHome)
+      let countriesSelecteds = indexOfRandomCountries.map(index => countries[index])
+      setRandomCountries(countriesSelecteds.filter(function (item, pos) {
+        return countriesSelecteds.indexOf(item) == pos;
+      }))
+    }
   }
 
   useEffect(() => {
     initializeCountries()
-
   }, [])
 
   useEffect(() => {
-    defineRandomCountries(countries.length)
+    defineRandomCountries(countries?.length)
   }, [countries])
 
   useEffect(() => {
@@ -66,8 +64,8 @@ export function Home() {
       <header>
         <Logo src={LogoPrincipal} alt="logotipo de Países do Mundo" />
       </header>
-      <div className="search-and-randomize">
 
+      <div className="search-and-randomize">
         <SearchBar action="" method="GET">
           <input
             type="text"

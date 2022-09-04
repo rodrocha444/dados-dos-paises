@@ -1,26 +1,19 @@
 import { CountryContainer, CountryData } from "./styles";
 import LogoHorizontal from '../../assets/logos/logo-horizontal.png'
-import { restCountriesAPI } from "../../api";
-import { useContext, useEffect, useState } from "react";
-import { CountriesContext } from "../../context/CountriesContext";
+import {  useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
 import { Country } from "../../types/main";
 import NumberFormat from 'react-number-format'
 import { MapPin } from "phosphor-react";
 
 export function CountryInfo() {
-  const [countries,] = useContext(CountriesContext)
+  const countries: Country[] = JSON.parse(localStorage.getItem('countries')!)
   const countrySelectedCCA3 = useParams().cca3
   const [countrySelected, setCountrySelected] = useState<Country>()
 
   useEffect(() => {
     setCountrySelected(countries.filter(country => country.cca3 === countrySelectedCCA3)[0])
-  }, [])
-
-  async function handleClick() {
-    console.log('alo')
-    console.log(await restCountriesAPI.getAll())
-  }
+  })
 
   return (
     <CountryContainer>
@@ -33,7 +26,7 @@ export function CountryInfo() {
       <CountryData>
         <section className="left-side">
           <img src={countrySelected?.flags.png} className="flag" />
-            <img src={countrySelected?.coatOfArms.png} className="brasao" />
+          <img src={countrySelected?.coatOfArms.png} className="brasao" />
           <a href={countrySelected?.maps.googleMaps}>
             <button className="link">
               <MapPin />
