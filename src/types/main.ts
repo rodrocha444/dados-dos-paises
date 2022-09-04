@@ -12,6 +12,7 @@ export interface Country {
   }
   cca3: string
   capital: string[]
+  region: string
   subregion: string
   languages: {
     [language: string]: string

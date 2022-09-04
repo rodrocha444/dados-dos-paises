@@ -52,7 +52,7 @@ export function CountryInfo() {
             countrySelected && Object.keys(countrySelected?.currencies)
               .map(currency => `${countrySelected?.currencies[currency].name} (${countrySelected?.currencies[currency].symbol})`)
           }</p>
-          <p>Continente: {countrySelected?.continents.map(country => `${country}`)}</p>
+          <p>Continente: {countrySelected?.region}</p>
           <p>Região: {countrySelected?.subregion}</p>
           <p>Língua: {
             countrySelected && Object.keys(countrySelected?.languages)
