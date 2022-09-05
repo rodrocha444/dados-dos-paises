@@ -4,71 +4,81 @@ import { Link } from "react-router-dom";
 import { pxToRem } from "../../utils/functions";
 
 export const HomeContainer = styled.main`
-  max-width: 800px;
-  width: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
-  
 
+  max-width: 800px;
+  width: 100%;
+  
   & > header{
     padding: ${pxToRem(32)} 0;
   }
 
   & > .search-and-randomize{
     display: flex;
-    width: 100%;
     gap:${pxToRem(16)};
+
+    width: 100%;
   }
 `
 export const Logo = styled.img`
   height: ${pxToRem(90)};
 `
 export const SearchBar = styled.form`
+  display: flex;
+  flex: 6;
+
+  padding: ${pxToRem(10)} ${pxToRem(20)};
+  
   background: #E8E8E8;
   border-radius: 5px;
-  flex: 6;
-  display: flex;
-  padding: ${pxToRem(10)} ${pxToRem(20)};
   transition: background 0.4s;
+  
   &:focus-within{
     background: #CBCBCB;
   }
+  
   & > input{
+    flex:1;
+    
     background: transparent;
     border: 0;
     outline: 0;
-    flex:1;
-    
   }
 `
 export const RandomButton = styled.button`
   display: flex;
   align-items: center;
   gap: ${pxToRem(6)};
-  background: #E8E8E8;
-  border-radius: 6px;
   flex: 2;
   justify-content: center;
+
+  background: #E8E8E8;
+  border-radius: 6px;
 
   transition: background 0.2s;
 
   &:hover{
     background: #CBCBCB;
   }
-
 `
+
 export const CountryGrid = styled.div`
-  padding: ${pxToRem(32)} 0;
-  width: 100%;
   display: grid;
   grid-template-columns: repeat(4,1fr);
   gap: ${pxToRem(15)};
+
+  padding: ${pxToRem(32)} 0;
+  width: 100%;
 `
 export const LinkStyled = styled(Link)`
   display: flex;
   flex-direction: column;
+  position: relative;
+  
   width: 100%;
+  
   box-shadow: 3px 3px 4px #0004;
   border-radius: 6px;
   overflow: hidden;
@@ -76,7 +86,6 @@ export const LinkStyled = styled(Link)`
   text-decoration: none;
   text-overflow: clip;
   color:#000;
-  position: relative;
 
   transition: scale 0.2s ease-in;
 
@@ -90,15 +99,17 @@ export const LinkStyled = styled(Link)`
   }
 
   &> span{
+    position: absolute;
+    bottom: 0;
+    
     margin-top: -${pxToRem(26)};
+    padding: ${pxToRem(5)};
+    width: 100%;
+    
     line-height: 1;
     font-weight: 500;
     color:#fff;
     background: #0007;
-    padding: ${pxToRem(5)};
     text-transform: uppercase;
-    position: absolute;
-    bottom: 0;
-    width: 100%;
   }
 `

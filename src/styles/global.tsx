@@ -6,13 +6,16 @@ export const GlobalStyle = createGlobalStyle`
     box-sizing: border-box;
     margin: 0;
     padding: 0;
+
     font-family: 'Rubik', sans-serif;
     text-decoration: none;
     color: #191919;
   }
+
   html{
     font-size: ${pxToRem(16)};
   }
+  
   button{
     border:0;
     background: transparent;
