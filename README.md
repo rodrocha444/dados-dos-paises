@@ -17,7 +17,7 @@ Primeiro passo, após a elaboração da ideia central do site, foi criar um esbo
 
 `img do esboco`
 
-## Protótipo Visual
+### Protótipo Visual
 
 Após o esboço, foi feito uma elaboração mais arrojada sobre o projeto, nesse processo foi feita os logos do site, também via **Adobe Photoshop**:
 
@@ -27,7 +27,7 @@ E a prototipagem via **Figma**, que resultou na seguinte identidade visual:
 
 `img do figma`
 
-## Desenvolvimento
+### Desenvolvimento
 
 Após as etapas de planejamento e inicialização da prototipagem, foi iniciada a etapa de desenvolvimento. As principais ferramentas utilizadas foram:
 
