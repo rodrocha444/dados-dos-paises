@@ -8,6 +8,7 @@ export const GlobalStyle = createGlobalStyle`
     padding: 0;
     font-family: 'Rubik', sans-serif;
     text-decoration: none;
+    color: #191919;
   }
   html{
     font-size: ${pxToRem(16)};

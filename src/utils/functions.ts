@@ -25,3 +25,8 @@ export function getArrayOfDistinctRandomNumbers(min: number, max: number, length
   }
   return result
 }
+export function getCountriesInStorage() {
+  return localStorage.getItem('countries')
+    ? JSON.parse(localStorage.getItem('countries')!)
+    : []
+}
