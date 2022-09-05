@@ -39,10 +39,8 @@ Após o esboço, foi feito uma elaboração mais arrojada sobre o projeto, nesse
 E a prototipagem via **Figma**, que resultou na seguinte identidade visual:
 
 <p align="center">
-  <img src="https://user-images.githubusercontent.com/58188119/188465283-bc450f2b-2bbf-404a-a248-cf6437581373.png" width="700" >
-</p>
-<p align="center">
-  <img src="https://user-images.githubusercontent.com/58188119/188465302-6db2469d-2291-4519-b662-7537ec7905c7.png" width="700">  
+  <img src="https://user-images.githubusercontent.com/58188119/188465283-bc450f2b-2bbf-404a-a248-cf6437581373.png" width="49%" >
+  <img src="https://user-images.githubusercontent.com/58188119/188465302-6db2469d-2291-4519-b662-7537ec7905c7.png" width="49%">  
 </p>
 
 
