@@ -30,7 +30,7 @@ export function CountryInfo() {
         <section className="left-side">
           <img src={countrySelected?.flags.png} className="flag" />
           <img src={countrySelected?.coatOfArms.png} className="brasao" />
-          <a href={countrySelected?.maps.googleMaps}>
+          <a href={countrySelected?.maps.googleMaps} target="_blank">
             <button className="link">
               <MapPin color="#fff" />
               <p>Localização</p>
