@@ -3,6 +3,8 @@
 É um projeto no qual tive como intenção aplicar conhecimentos que adquiri nos últimos meses de estudo sobre desenvolvimento *front-end*. 
 Conhecimentos antigos também foram de suma importância para a completude do projeto.
 
+> Site em funcionamento em https://dados-dos-paises-skyej.ondigitalocean.app/
+
 ## O Objetivo do site
 
 é basicamente um site que fornece informações sobre vários países do mundo, tendo como enfoque especial o visual focado nas bandeiras e nos brasões de cada nação.
