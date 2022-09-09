@@ -25,13 +25,13 @@ Após o esboço, foi feito uma elaboração mais arrojada sobre o projeto, nesse
 <div style="background:#fff;">
 
 <p align="center">
-  <img src="https://user-images.githubusercontent.com/58188119/188463962-a2fbf0ab-cdc5-41ad-a9c7-6f9f2972040d.png" width="700" >
+  <img src="https://user-images.githubusercontent.com/58188119/189262108-58161240-3f99-4607-ad8b-cb23790edd1c.jpg" width="700" >
 </p>
   
 ---
-  
+
 <p align="center">
-  <img src="https://user-images.githubusercontent.com/58188119/188463975-3c27bea8-9d76-45d7-9a16-68e8ecaa8b55.png" width="700" >
+  <img src="https://user-images.githubusercontent.com/58188119/189262148-cdac4711-9aef-4073-9c47-c5f60292913f.jpg" width="700" >
 </p>
 
 </div>
