@@ -61,5 +61,8 @@ cd dados-dos-paises
 yarn
 yarn dev
 ```
+## Resultado
+
+![ezgif-2-2589dbb858](https://user-images.githubusercontent.com/58188119/189265117-24f31500-f771-4763-9d64-5e55e4d37250.gif)
 
 > Projeto aberto à contribuições
